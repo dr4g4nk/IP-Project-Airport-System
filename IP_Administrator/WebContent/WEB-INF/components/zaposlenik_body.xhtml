@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head />
+<ui:composition>
+	<div class="container pt-3 bg-dark text-white">
+		<div>
+			<h:outputLabel value="#{korisnikBean.errorMessage}"></h:outputLabel>
+		</div>
+		<h:form>
+			<ui:include src="/WEB-INF/components/update_zaposleni_body.xhtml"></ui:include>
+			<ui:include src="/WEB-INF/components/korisnicko_ime.xhtml"></ui:include>
+			<ui:include src="/WEB-INF/components/korisnik_password.xhtml"></ui:include>
+			<ui:include src="/WEB-INF/components/nalog_is_enabled.xhtml"></ui:include>
+			<div class="row d-flex justify-content-around">
+				<div class="col-sm-2">
+					<h:commandButton styleClass="btn btn-primary" value="Save"
+						action="#{korisnikBean.insert}"></h:commandButton>
+				</div>
+			</div>
+			<br/>
+		</h:form>
+	</div>
+</ui:composition>
+</html>

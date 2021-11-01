@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head />
+<ui:composition>
+	<div class="container pt-3 bg-dark text-white">
+		<h:form>
+			<div class="row form-group d-flex justify-content-center">
+				<span class="col-sm-2"><h:outputLabel value="Drzava"></h:outputLabel></span>
+				<span class="col-sm-4"> <h:selectOneMenu id="drzave"
+						class="form-control" value="#{lokacijaBean.lokacija.drzava}">
+						<f:selectItems value="#{lokacijaBean.drzave}"></f:selectItems>
+					</h:selectOneMenu></span>
+			</div>
+
+			<div class="row form-group d-flex justify-content-center">
+				<span class="col-sm-2"><h:outputLabel value="Grad"></h:outputLabel></span>
+				<span class="col-sm-4"> <h:inputText id="grad"
+						class="form-control" value="#{lokacijaBean.lokacija.grad}">
+					</h:inputText></span>
+			</div>
+			<div class="text-danger">#{lokacijaBean.errorMessage}</div>
+			<div class="row form-group d-flex justify-content-center">
+				<h:commandLink class="form-contol btn btn-primary" value="Save"
+					action="#{lokacijaBean.save()}"></h:commandLink>
+			</div>
+			<br/>
+		</h:form>
+	</div>
+</ui:composition>
+</html>

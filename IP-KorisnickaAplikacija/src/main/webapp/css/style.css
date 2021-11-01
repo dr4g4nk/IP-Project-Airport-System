@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+.bg-image-airport {
+	background-image: url('../images/Airport.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: auto;
+}
+
+#map {
+	height: 400px;
+	/* The height is 400 pixels */
+	width: 100%;
+	/* The width is the width of the web page */
+}
+
+.border-left-warning {
+	border-left: 5px solid #f5c542;
+	border-radius: 15px;
+}
+
+.border-left-primary {
+	border-left: 5px solid #2faeed;
+	border-radius: 15px;
+}
+
+.footer {
+	height: 30px;
+	font-size: 20px;
+	font-style: italic;
+	text-align: center;
+	line-height: 30px;
+}
+.flex-container{
+	display: flex;
+	flex-direction: column;	
+}
+body {
+	background-image: url('../images/background.png');
+}
+
+.table-white td {
+	color: white;
+}

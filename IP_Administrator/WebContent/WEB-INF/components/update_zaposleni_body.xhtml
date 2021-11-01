@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head />
+<ui:composition>
+
+	<div>
+		<h:outputLabel value="#{korisnikBean.errorMessage}"></h:outputLabel>
+	</div>
+	<div class="row form-group d-flex justify-content-center">
+		<span class="col-sm-2"> <h:outputLabel value="Ime:"></h:outputLabel>
+		</span> <span class="col-sm-4"> <h:inputText id="ime"
+				styleClass="form-control" value="#{korisnikBean.newKorisnik.ime}"
+				required="true" requiredMessage="*Ime je obavezno.">
+			</h:inputText>
+		</span>
+	</div>
+	<div class="row form-group d-flex justify-content-center">
+		<h:message for="ime" style="color:red" />
+	</div>
+	<div class="row form-group d-flex justify-content-center">
+		<span class="col-sm-2"> <h:outputLabel value="Prezime:"></h:outputLabel>
+		</span> <span class="col-sm-4"> <h:inputText id="prezime"
+				styleClass="form-control"
+				value="#{korisnikBean.newKorisnik.prezime}" required="true"
+				requiredMessage="*Prezime je obavezno."></h:inputText>
+		</span>
+	</div>
+	<div class="row form-group d-flex justify-content-center">
+		<h:message for="prezime" style="color:red" />
+	</div>
+</ui:composition>
+</html>

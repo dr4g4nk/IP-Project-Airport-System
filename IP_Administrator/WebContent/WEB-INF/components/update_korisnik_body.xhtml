@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head />
+<ui:composition>
+
+	<ui:include src="/WEB-INF/components/update_zaposleni_body.xhtml"></ui:include>
+	
+	<div class="row form-group d-flex justify-content-center">
+		<span class="col-sm-2"> <h:outputLabel value="Drzava:"></h:outputLabel>
+		</span> <span class="col-sm-4"> <h:selectOneMenu id="drzava"
+				styleClass="form-control" value="#{korisnikBean.newKorisnik.drzava}">
+				<f:selectItems value="#{korisnikBean.drzave}"></f:selectItems>
+				</h:selectOneMenu>
+		</span>
+	</div>
+	<div class="row form-group d-flex justify-content-center">
+		<h:message for="drzava" style="color:red" />
+	</div>
+	<div class="row form-group d-flex justify-content-center">
+		<span class="col-sm-2"> <h:outputLabel value="Adresa:"></h:outputLabel>
+		</span> <span class="col-sm-4"> <h:inputTextarea rows="3" id="adresa"
+				styleClass="form-control" value="#{korisnikBean.newKorisnik.adresa}"
+				required="true" requiredMessage="*Adresa je obavezna."></h:inputTextarea>
+		</span>
+
+	</div>
+	<div class="row form-group d-flex justify-content-center">
+		<h:message for="adresa" style="color:red" />
+	</div>
+	<div class="row form-group d-flex justify-content-center">
+		<span class="col-sm-2"> <h:outputLabel value="Vrsta naloga:"></h:outputLabel>
+		</span> <span class="col-sm-4"> <h:selectOneMenu
+				styleClass="form-control"
+				value="#{korisnikBean.newKorisnik.vrstaNaloga}">
+				<f:selectItems value="#{korisnikBean.vrsteNaloga}" />
+			</h:selectOneMenu>
+		</span>
+	</div>
+	<br />
+
+</ui:composition>
+</html>

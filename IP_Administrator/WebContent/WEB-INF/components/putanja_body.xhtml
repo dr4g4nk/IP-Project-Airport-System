@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head />
+<ui:composition>
+
+	<div class="row form-group d-flex justify-content-center">
+		<span class="col-sm-2"><h:outputLabel value="Polazna lokacija"></h:outputLabel></span>
+		<span class="col-sm-4"></span> <span class="col-sm-12"><br /></span>
+		<div class="container form-group">
+			<div class="conatainer form-group flex-column pl-5">
+				<div class="row form-group d-flex justify-content-center">
+					<span class="col-sm-2"><h:outputLabel value="Drzava"></h:outputLabel></span>
+					<span class="col-sm-4"> <h:selectOneMenu id="pDrzave"
+							class="form-control" value="#{putanjaBean.polaznaDrzava}">
+							<f:selectItems value="#{putanjaBean.pDrzave}"></f:selectItems>
+							<f:ajax execute="pDrzave" render="pGradovi" />
+						</h:selectOneMenu></span>
+				</div>
+				<div class="row form-group d-flex justify-content-center">
+					<span class="col-sm-2"><h:outputLabel value="Grad"></h:outputLabel></span>
+					<span class="col-sm-4"> <h:selectOneMenu id="pGradovi"
+							class="form-control" value="#{putanjaBean.polazniGrad}">
+							<f:selectItems value="#{putanjaBean.pGradovi}"></f:selectItems>
+						</h:selectOneMenu>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row form-group d-flex justify-content-center">
+		<span class="col-sm-2"><h:outputLabel
+				value="Odredisna lokacija"></h:outputLabel></span> <span class="col-sm-4"></span>
+		<span class="col-sm-12"><br /></span>
+		<div class="container form-group">
+			<div class="conatainer form-group flex-column pl-5">
+				<div class="container flex-column">
+					<div class="row form-group  d-flex justify-content-center">
+						<span class="col-sm-2"><h:outputLabel value="Drzava"></h:outputLabel></span>
+						<span class="col-sm-4"> <h:selectOneMenu id="oDrzave"
+								class="form-control" value="#{putanjaBean.odredisnaDrzava}">
+								<f:selectItems value="#{putanjaBean.oDrzave}"></f:selectItems>
+								<f:ajax execute="oDrzave" render="oGradovi" />
+							</h:selectOneMenu>
+						</span>
+					</div>
+					<div class="row form-group d-flex justify-content-center">
+						<span class="col-sm-2"><h:outputLabel value="Grad"></h:outputLabel></span>
+						<span class="col-sm-4"> <h:selectOneMenu id="oGradovi"
+								class="form-control" value="#{putanjaBean.odredisniGrad}">
+								<f:selectItems value="#{putanjaBean.oGradovi}"></f:selectItems>
+								<f:ajax execute="pDrzave pGradovi oDrzave oGradovi"/>
+								<f:attribute name="polazniGrad"
+									value="#{putanjaBean.polazniGrad}" />
+								<f:attribute name="polaznaDrzava"
+									value="#{putanjaBean.polaznaDrzava}" />
+								<f:attribute name="odredisnaDrzava"
+									value="#{putanjaBean.odredisnaDrzava}" />
+								<f:attribute name="update"
+									value="#{putanjaBean.update}" />
+								<f:validator validatorId="lokacijaValidator" />
+							</h:selectOneMenu>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row form-group d-flex justify-content-center">
+		<h:message id="m-potvrda" for="oGradovi" style="color:red" />
+	</div>
+</ui:composition>
+</html>

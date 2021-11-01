@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head />
+<ui:composition>
+	<div class="container">
+		<h:form>
+			<div class="table-responsive-sm">
+				<h:dataTable styleClass="table table-hover table-striped"
+					headerClass="thead-dark" value="#{zaposleniBean.zaposleni}"
+					var="zaposlenik">
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="Korisnicko ime" />
+						</f:facet>#{zaposlenik.korisnickoIme}
+			</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="Ime" />
+						</f:facet>#{zaposlenik.ime}
+			</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="Prezime" />
+						</f:facet>#{zaposlenik.prezime}
+			</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="Aktivan" />
+						</f:facet>#{zaposlenik.enabled}
+			</h:column>
+					<h:column>
+						<h:commandButton styleClass="btn btn-danger" value="Obrisi"
+							action="#{zaposleniBean.delete}">
+							<f:param value="#{zaposlenik.korisnickoIme}" name="korisnickoIme" />
+						</h:commandButton>
+					</h:column>
+					<h:column>
+						<h:commandButton styleClass="btn btn-info" value="Izmijeni"
+							action="/zaposlenik/update.xhtml">
+							<f:param value="#{zaposlenik.korisnickoIme}" name="id" />
+						</h:commandButton>
+					</h:column>
+				</h:dataTable>
+
+			</div>
+			<div class="container-fluid">
+				<div class="row form-group">
+					<div class="col-sm-4">
+						<h:commandLink styleClass="btn btn-primary" value="Novi Zaposleni"
+							action="/zaposlenik.xhtml"></h:commandLink>
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</div>
+</ui:composition>
+</html>

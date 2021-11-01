@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head />
+<ui:composition>
+	<div class="table-responsive-sm">
+			<h:dataTable styleClass="table table-striped"
+				headerClass="thead-dark" value="#{putanjaBean.putanje}"
+				var="putanja">
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Polazna lokacija" />
+					</f:facet>
+				#{putanja.polaznaLokacija.grad}, #{putanja.polaznaLokacija.drzava}
+			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Odredisna lokacija" />
+					</f:facet>
+				#{putanja.odredisnaLokacija.grad}, #{putanja.odredisnaLokacija.drzava}
+			</h:column>
+			<h:column>
+					<h:commandButton styleClass="btn btn-danger" value="Obrisi"
+						action="#{putanjaBean.delete}">
+						<f:param value="#{putanja.id}" name="id" />
+					</h:commandButton>
+				</h:column>
+				<h:column>
+					<h:commandButton styleClass="btn btn-info" value="Izmijeni"
+						action="/putanja_update.xhtml">
+						<f:param value="#{putanja.id}" name="id" />
+					</h:commandButton>
+				</h:column>
+			</h:dataTable>
+		</div>
+</ui:composition>
+</html>

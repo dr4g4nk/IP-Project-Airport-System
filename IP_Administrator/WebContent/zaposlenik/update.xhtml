@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head />
+<h:body>
+	<ui:composition template="/WEB-INF/templates/template.xhtml">
+		<ui:define name="header">
+			<ui:include src="/WEB-INF/components/header.xhtml"></ui:include>
+		</ui:define>
+		<ui:define name="nav">
+			<ui:include src="/WEB-INF/components/nav.xhtml"></ui:include>
+		</ui:define>
+		<ui:define name="body">
+			<div class="container pt-3 bg-dark text-white">
+			<h5>Osnovni podaci</h5>
+				<div>
+					<h:outputLabel value="#{korisnikBean.errorMessage}"></h:outputLabel>
+				</div>
+				<h:form>
+					<ui:include src="/WEB-INF/components/update_zaposleni_body.xhtml"></ui:include>
+					<ui:include src="/WEB-INF/components/nalog_is_enabled.xhtml"></ui:include>
+					<div class="row d-flex justify-content-center">
+						<div class="col-sm-2">
+							<h:commandButton styleClass="btn btn-primary" value="Save"
+								action="#{korisnikBean.update}"></h:commandButton>
+						</div>
+					</div>
+				</h:form>
+				<br/>
+			</div>
+		</ui:define>
+		<ui:define name="body2">
+		
+		<div class="container pt-3 bg-dark text-white">
+		<h5>Lozinka</h5>
+				<div>
+					<h:outputLabel value="#{korisnikBean.errorMessage}"></h:outputLabel>
+				</div>
+				<h:form>
+					<ui:include src="/WEB-INF/components/korisnik_password.xhtml"></ui:include>
+					<div class="row d-flex justify-content-center">
+						<div class="col-sm-2">
+							<h:commandButton styleClass="btn btn-primary" value="Save"
+								action="#{korisnikBean.updateLozinka}"></h:commandButton>
+						</div>
+					</div>
+				</h:form>
+				<br/>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

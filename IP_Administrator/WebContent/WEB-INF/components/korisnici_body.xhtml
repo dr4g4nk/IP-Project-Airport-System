@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head />
+<ui:composition>
+	<h:form>
+		<div class="table-responsive-sm">
+			<h:dataTable styleClass="table table-hover table-striped"
+				headerClass="thead-dark" value="#{korisniciBean.korisnici}"
+				var="korisnik">
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Email" />
+					</f:facet>
+				#{korisnik.email}
+			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Korisnicko ime" />
+					</f:facet>#{korisnik.korisnickoIme}
+			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Ime" />
+					</f:facet>#{korisnik.ime}
+			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Prezime" />
+					</f:facet>#{korisnik.prezime}
+			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Adresa" />
+					</f:facet>#{korisnik.adresa}
+			</h:column>
+			<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Drzava" />
+					</f:facet>#{korisnik.drzava}
+			</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Vrsta naloga" />
+					</f:facet>#{korisnik.vrstaNaloga}
+			</h:column>
+				<h:column>
+					<h:commandButton styleClass="btn btn-danger" value="Obrisi"
+						action="#{korisniciBean.delete}">
+						<f:param value="#{korisnik.email}" name="email" />
+					</h:commandButton>
+				</h:column>
+				<h:column>
+					<h:commandButton styleClass="btn btn-info" value="Izmijeni"
+						action="/korisnik/update.xhtml">
+						<f:param value="#{korisnik.email}" name="id" />
+						<f:param name="korisnik"></f:param>
+					</h:commandButton>
+				</h:column>
+			</h:dataTable>
+
+		</div>
+		<div class="container-fluid">
+			<div class="row form-group">
+				<div class="col-sm-4">
+					<h:commandLink styleClass="btn btn-primary" value="Novi Korisnik"
+						action="/korisnik.xhtml">
+						<f:param name="korisnik"></f:param>
+						</h:commandLink>
+				</div>
+			</div>
+		</div>
+	</h:form>
+</ui:composition>
+</html>

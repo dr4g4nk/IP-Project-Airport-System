@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+
+</h:head>
+<h:body>
+	<ui:composition template="/WEB-INF/templates/template.xhtml">
+		<ui:define name="header">
+			<ui:include src="/WEB-INF/components/header.xhtml"></ui:include>
+		</ui:define>
+		<ui:define name="nav">
+			<ui:include src="/WEB-INF/components/nav.xhtml"></ui:include>
+		</ui:define>
+		<ui:define name="body">
+			<div class="container pt-3 bg-dark text-white ">
+				<h:form>
+					<div class="container">
+						<ui:include src="/WEB-INF/components/putanja_body.xhtml"></ui:include>
+					</div>
+					<div class="row form-group d-flex justify-content-center">
+						<span style="color:red">#{putanjaBean.msg }</span></div>
+					<div class="row form-group d-flex justify-content-center p-3">
+						<h:commandButton class="form-contol btn btn-primary m-2" value="Save"
+							action="#{putanjaBean.save}"></h:commandButton>
+							<h:link class="form-contol btn btn-success m-2" outcome="lokacija" >Dodaj novu lokaciju</h:link>
+					</div>
+					<br />
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+	<channel>
+		<title>Ip Korisnicka Aplikacija</title>
+		<link>http://localhost:8081/IP-KorisnickaAplikacija/</link>
+		<description>Korisnicka aplikacija za pregled i rezervaciju letova
+		</description>
+		<item>
+			<title>Danasnji dolasci</title>
+			<link>http://localhost:8081/IP-KorisnickaAplikacija/?action=arrivals
+			</link>
+			<guid>http://localhost:8081/IP-KorisnickaAplikacija/?action=arrivals
+			</guid>
+			<description>Svi danasnji dolasci</description>
+		</item>
+		<item>
+			<title>Danasnji odlasci</title>
+			<link>http://localhost:8081/IP-KorisnickaAplikacija/?action=departures
+			</link>
+			<guid>http://localhost:8081/IP-KorisnickaAplikacija/?action=departures
+			</guid>
+			<description>Svi danasnji odlasci</description>
+		</item>
+	</channel>
+
+</rss> 

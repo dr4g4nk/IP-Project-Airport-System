@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head />
+<ui:composition>
+	<div class="container pt-3 bg-dark text-white">
+		<h:form>
+			<div class="row form-group d-flex justify-content-center">
+				<span class="col-sm-2"> <h:outputLabel
+						value="Korisnicko ime:"></h:outputLabel>
+				</span> <div class="col-sm-4"> <h:inputText styleClass="form-control"
+						value="#{adminBean.admin.korisnickoIme}" ></h:inputText>
+				</div>
+			</div>
+			<div class="row form-group d-flex justify-content-center">
+				<span class="col-sm-2"> <h:outputLabel value="Lozinka:"></h:outputLabel>
+				</span> <span class="col-sm-4"> <h:inputSecret styleClass="form-control"
+						value="#{adminBean.admin.lozinka}"></h:inputSecret>
+				</span>
+			</div>
+			<div class="row d-flex justify-content-around">
+				<div class="col-sm-2">
+					<h:commandButton styleClass="btn btn-primary" value="Login"
+						action="#{adminBean.login}"></h:commandButton>
+				</div>
+			</div>
+			<br/>
+		</h:form>
+	</div>
+</ui:composition>
+</html>

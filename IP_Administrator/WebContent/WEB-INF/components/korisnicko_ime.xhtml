@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head />
+<ui:composition>
+
+	<div class="row form-group d-flex justify-content-center">
+		<span class="col-sm-2"> <h:outputLabel value="Korisnicko ime:"></h:outputLabel>
+		</span> <span class="col-sm-4"> <h:inputText id="korisnickoIme"
+				styleClass="form-control"
+				value="#{korisnikBean.newKorisnik.korisnickoIme}" required="true"
+				requiredMessage="*Korisnicko ime je obavezno.">
+				<f:validator validatorId="korisnickoImeValidator" />
+			</h:inputText>
+		</span>
+	</div>
+	<div class="row form-group d-flex justify-content-center">
+		<h:message for="korisnickoIme" style="color:red" />
+	</div>
+</ui:composition>
+</html>
