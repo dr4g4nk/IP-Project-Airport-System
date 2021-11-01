@@ -81,7 +81,7 @@
 				<div class="col-lg-6">
 					<div id="map">
 						<script defer
-							src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzGfKRK0un3Ys6HAszW3itFsfkO3pd5UI&callback=initMap">
+							src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=initMap">
 						
 					</script>
 					</div>
