@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <button class="btn btn-primary" (click)="letModal()">Dodaj let</button>
+</div>
+<br />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4 mb-3" *ngFor=" let item of letovi">
+            <div class="card  bg-dark text-white">
+                <div class=" card-body">
+                    <h2 class="card-title">{{item.putanja.polaznaLokacija.grad}},
+                        {{item.putanja.polaznaLokacija.drzava}} ->
+                        {{item.putanja.odredisnaLokacija.grad}}, {{item.putanja.odredisnaLokacija.drzava}}</h2>
+                    <h3>Tip: {{item.tip}}</h3>
+                    <button (click)="openModal(item)" class="btn btn-primary">Termini</button>
+                    <button (click)="delete(item)" class="btn btn-danger right-button">Obrisi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

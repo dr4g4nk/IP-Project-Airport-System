@@ -1,0 +1,39 @@
+<div class="modal-header">
+    <h4 class="modal-title">Unos termina</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.close()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        Izaberite dan(e):
+        <div>
+            <ngb-datepicker #dp (dateSelect)="addDate($event)"></ngb-datepicker>
+        </div>
+
+        <div class="border rounded-lg">
+            <div *ngIf="dates.length > 0">Izabrani datumi:</div>
+            <div class="row">
+                <span class="border border-primary rounded-pill bg-success text-white" *ngFor="let date of dates">
+                    &nbsp;{{date.day + "." + date.month + "." + date.year}}<button
+                        class="btn btn-xs btn-danger rounded-circle"
+                        (click)="deleteDate(date)"><span>&times;</span></button></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Vrijeme polaska: &nbsp;</label>
+
+        <input [(ngModel)]="startTime" type="time" min="00:00" max="23:59" required>
+    </div>
+    <div class="form-group">
+        <label>Vrijeme dolaska: &nbsp;</label>
+
+        <input [(ngModel)]="endTime" type="time" min="00:00" max="23:59" required>
+    </div>
+    <ngb-alert *ngIf="showMsg" (closed)="showMsg = false">Podaci nisu ispravni.</ngb-alert>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" (click)="save()">Sacuvaj</button>
+</div>

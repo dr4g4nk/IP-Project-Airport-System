@@ -1,0 +1,11 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand nav-item" routerLink="/home/letovi" routerLinkActive="active">Letovi</a>
+    <a class="navbar-brand nav-item" routerLink="/home/rezervacije" routerLinkActive="active">Rezervacije</a>
+    <a class="navbar-brand nav-item" routerLink="/home/poruke" routerLinkActive="active">Poruke</a>
+    <a class="navbar-brand nav-item" (click)="logout()" routerLink="/login" routerLinkActive="active">Logout</a>
+
+</nav>
+<div class="container jumbotron text-center">
+    <h2>Dobrodosli na aplikaciju za zaposlene</h2>
+</div>
+<router-outlet></router-outlet>

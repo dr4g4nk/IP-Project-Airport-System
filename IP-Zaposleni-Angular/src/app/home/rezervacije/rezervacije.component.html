@@ -1,0 +1,68 @@
+<div class="container-fluid">
+    <div class="form-group">
+        <div class="row">
+            <div class="col">
+                <div ngbDropdown class="d-inline-block">
+                    <button class="btn btn-outline-primary" ngbDropdownToggle>{{selectedTitle}}</button>
+                    <div ngbDropdownMenu>
+                        <button ngbDropdownItem
+                            (click)='selected = "Nova"; selectedTitle = "Nove rezervacije"; filter()'>Nove
+                            rezervacije</button>
+                        <button ngbDropdownItem
+                            (click)='selected = "Prihvacena"; selectedTitle = "Prihavacene rezervacije"; filter()'>Prihavacene
+                            rezervacije</button>
+                        <button ngbDropdownItem
+                            (click)='selected = "Ponistena"; selectedTitle = "Ponistene rezervacije"; filter()'>Ponistene
+                            rezervacije</button>
+                        <button ngbDropdownItem (click)='selected = ""; selectedTitle = "Sve rezervacije"; filter()'>Sve
+                            rezervacije</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Ime</th>
+                    <th>Prezime</th>
+                    <th>Email</th>
+                    <th>Datum kreiranja</th>
+                    <th>Status</th>
+                    <th>Let</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rezervacija of filtered">
+                    <td>{{ rezervacija.korisnik.ime }}</td>
+                    <td>{{ rezervacija.korisnik.prezime }}</td>
+                    <td>{{ rezervacija.korisnik.email }}</td>
+                    <td>{{rezervacija.datumKreiranja}}</td>
+                    <td>{{ rezervacija.status}}</td>
+                    <td>{{rezervacija.l.putanja.polaznaLokacija.grad}}, {{rezervacija.l.putanja.polaznaLokacija.drzava}}
+                        ->
+                        {{rezervacija.l.putanja.odredisnaLokacija.grad}},
+                        {{rezervacija.l.putanja.odredisnaLokacija.drzava}}
+                    </td>
+
+
+                    <td *ngIf='rezervacija.status=="Nova"' class="overflow-hidden">
+                        <div ngbDropdown container="body">
+                            <button class="btn btn-outline-primary btn-sm" ngbDropdownToggle>Akcije</button>
+                            <div ngbDropdownMenu>
+                                <button class="bg-success text-white border rounded-lg" ngbDropdownItem
+                                    (click)="prihvati(rezervacija)">Prihvati</button>
+                                <button class="bg-danger text-white border rounded-lg" ngbDropdownItem
+                                    (click)="openModal(rezervacija)">Ponisti</button>
+                            </div>
+                        </div>
+                    </td>
+                    <td *ngIf='rezervacija.status!="Nova"'>&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{Let.putanja.polaznaLokacija.grad}}, {{Let.putanja.polaznaLokacija.drzava}} ->
+        {{Let.putanja.odredisnaLokacija.grad}}, {{Let.putanja.odredisnaLokacija.drzava}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.close()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Dan</th>
+                <th scope="col">Polazak</th>
+                <th scope="col">Dolazak</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let termin of Let.termini">
+                <th scope="row"></th>
+
+                <td>{{ termin.dan }}</td>
+                <td>{{ termin.polazak }}</td>
+                <td>{{ termin.dolazak }}</td>
+                <td>
+                    <button class="btn btn-xs btn-danger rounded-circle"
+                        (click)="delete(termin.id)"><span>&times;</span></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" (click)="openModal()">Dodaj termin</button>
+</div>

@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="form-group">
+        <div class="row">
+            <div class="col">
+                <div ngbDropdown class="d-inline-block">
+                    <button class="btn btn-outline-primary" ngbDropdownToggle>{{selectedTitle}}</button>
+                    <div ngbDropdownMenu>
+                        <button ngbDropdownItem
+                            (click)='selected="Neprocitana"; selectedTitle = "Neprocitane poruke"; filter()'>Neprocitane
+                            poruke</button>
+                        <button ngbDropdownItem
+                            (click)='selected = "Procitana"; selectedTitle = "Procitane poruke"; filter()'>Procitane
+                            poruke</button>
+                        <button ngbDropdownItem (click)='selected = ""; selectedTitle = "Sve poruke"; filter()'>Sve
+                            poruke</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Datum</th>
+                <th scope="col">Status</th>
+                <th scope="col">Naslov</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let poruka of filtered">
+                <td>{{ poruka.email }}</td>
+                <td>{{ poruka.datum}}</td>
+                <td>{{ poruka.status}}</td>
+                <td>{{ poruka.naslov}}</td>
+
+
+                <td *ngIf='poruka.status=="Neprocitana"' class="overflow-hidden">
+                    <button class="btn btn-outline-primary btn-sm" (click)="openModal(poruka)">Procitaj</button>
+                </td>
+                <td *ngIf='poruka.status!="Neprocitana"'><button class="btn btn-outline-primary btn-sm"
+                        (click)="openModal(poruka)">Pogledaj</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
